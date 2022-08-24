@@ -64,7 +64,7 @@ The Timeline So, I will admit fault here; I slacked off for a bunch of months. I
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          7 min read
+          6 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -109,13 +109,13 @@ The Timeline So, I will admit fault here; I slacked off for a bunch of months. I
 </ul>
 </li>
 <li>
-<p>For note storage, I setup the OSEP folder to sync with a private repositiory.</p>
+<p>For note storage, I setup the OSEP folder to sync with a private repository.</p>
 </li>
 <li>
 <p>This is also the host I used for my OSEP exam.</p>
 </li>
 </ul>
-<p>Just a small note, I hate using the kali desktop environment I find it clunky, oobnoxious and there are always so many issues with openvm tools. Using everything over SSH made everything alot smoother.</p>
+<p>Just a small note, I hate using the kali desktop environment I find it clunky, obnoxious and there are always so many issues with openvm tools. Using everything over SSH made everything alot smoother.</p>
 <h2 id="c-powershell-and-net---a-struggling-student">C#, Powershell, and .NET - A struggling student</h2>
 <p>My biggest issue with the course came from the heavy focus on using .NET and CSharp. I don&rsquo;t think I would have had as much of an issue, but they kept introducing terminology and wouldn&rsquo;t spend much time explaining what they ment. After reading the chapter over any over, I still had no idea what a namespace was, how classes were referred to, what an <code>Add-type complimation</code> was about, or that assemblies were just compiled .NET code. I was very fortunate to have a friend help me with a few questions.</p>
 <p>Thank you to <a href="https://twitter.com/Gr1mmie">@Grimme</a> and his expertise on .NET. Check his work at  <a href="https://grimmie.net/">https://grimmie.net/</a>. There was a good chance that this was explained well somewhere, but I just could not make heads or tails of it.</p>
@@ -126,14 +126,14 @@ The Timeline So, I will admit fault here; I slacked off for a bunch of months. I
 <p>If I am being honest, flow charts would have been a huge help for this kind of thing and I found myself building my own to help fully understand the topics.
 <img src="2022-08-23-08-19-28-image.png" alt=""></p>
 <p>Overall, although the content for C#/.NET/Powershell was thorough, I could not keep a firm grasp on a lot of it because of lack of prior knowledge.</p>
-<h2 id="win32api-and-malware-evasion---a-fan-favourite">Win32API and Malware Evasion - A fan favourite</h2>
-<p>I really enjoyed this section, although it falls trap to the previous issue of having a lot of things done in C#/.NET. I added this section because it was a personal favourite of mine.</p>
-<p>So in my first go around, I didn&rsquo;t learn much. I realized that I was just copying and typing down the exact commands from exercisessies without fully knowing what I was typing.</p>
+<h2 id="win32api-and-malware-evasion---a-fan-favorite">Win32API and Malware Evasion - A fan favorite</h2>
+<p>I really enjoyed this section, although it falls trap to the previous issue of having a lot of things done in C#/.NET. I added this section because it was a personal favorite of mine.</p>
+<p>So in my first go around, I didn&rsquo;t learn much. I realized that I was just copying and typing down the exact commands from exercises without fully knowing what I was typing.</p>
 <p>The real progress start when I was listening to a friend talk about his red team engagements, and his language of choice was Nim. Nim is reasonably new and I am not going to get into it much,  but he focuses on the fact that calling WinAPI32 was a breeze. So I started rewriting my exercises in this section in Nim and boom. I started to really understand what each of the calls I was making, was actually doing. I understood what a handle was and started to make more advanced changes to the malware development stage of the PEN-300.</p>
 <p><img src="2022-08-23-08-42-34-image.png" alt=""></p>
-<p>I even took what I was learning in the course, and [contributed](<a href="https://github.com/byt3bl33d3r/OffensiveNim/pull/52">Create token_steal_cmd.nim by ILightThings · Pull Request #52 · byt3bl33d3r/OffensiveNim · GitHub</a>) back to the [offensive nim repo on github](<a href="https://github.com/byt3bl33d3r/OffensiveNim">GitHub - byt3bl33d3r/OffensiveNim: My experiments in weaponizing Nim (https://nim-lang.org/)</a>).</p>
+<p>I even took what I was learning in the course, and <a href="https://github.com/byt3bl33d3r/OffensiveNim/pull/52">contributed</a> back to the <a href="https://github.com/byt3bl33d3r/OffensiveNim">offensive nim repo on github</a>.</p>
 <p><img src="2022-08-23-08-43-04-image.png" alt=""></p>
-<p>But besides that, I was inspired to build my own shellcode encoder that wouldn&rsquo;t get picked up by antivirus or EDR on static inspection. I think I might make another post about the specifics about it. But regardless, of the malware, paired with both nim, and the custom-written encoder, this section was a lot of fun to work with.</p>
+<p>But besides that, I was inspired to build my own shell code encoder that wouldn&rsquo;t get picked up by antivirus or EDR on static inspection. I think I might make another post about the specifics about it. But regardless, of the malware, paired with both nim, and the custom-written encoder, this section was a lot of fun to work with.</p>
 <h2 id="the-exam">The Exam</h2>
 <p>Alright, so the exam. Obviously, I can not give a lot of details, but I think it brought the fun back in taking exams. Unlike the OSCP, I felt that the 48-hour time limit that they gave you was enough and the flow of the exam easily resembled an attack chain that I would see working on real engagements. A real overall improvement over taking the OSCP exam.</p>
 <p>There were 2 attack paths that did get me stumped for about 7-9 hours total. One was complete my fault for not trying something very basic, and the other was just a completely foreign concept that was taught, just not in the context that was given to me. Kinda like being taught how a car engine works, repairing, diagnosing, and then for the exam, they throw you at a motorcycle engine.  Doable, but a lot more effort and research is required.</p>
