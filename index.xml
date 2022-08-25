@@ -19,10 +19,10 @@ The Timeline So, I will admit fault here; I slacked off for a bunch of months. I
     
     <item>
       <title>Pokemon: A Fun Encoder Project</title>
-      <link>https://ilightthings.github.io/posts/pokemon-encoder/template/</link>
+      <link>https://ilightthings.github.io/posts/pokemon-encoder/</link>
       <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
       
-      <guid>https://ilightthings.github.io/posts/pokemon-encoder/template/</guid>
+      <guid>https://ilightthings.github.io/posts/pokemon-encoder/</guid>
       <description>This is just a small writeup I made for a shellcode payload encoder that I made for the the OSEP exam.
 Goals:
 Make sure the entropy is at a level similar to English
