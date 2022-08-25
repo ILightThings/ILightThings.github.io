@@ -6,11 +6,11 @@
     <description>Recent content in shellcode on iLightThings: A site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Aug 2022 07:39:32 -0400</lastBuildDate><atom:link href="https://ilightthings.github.io/tags/shellcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Aug 2022 07:39:32 -0400</lastBuildDate><atom:link href="https://ilightthings.github.io/tags/shellcode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pokemon: A Fun Encoder Project</title>
       <link>https://ilightthings.github.io/posts/pokemon-encoder/</link>
-      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
+      <pubDate>Wed, 24 Aug 2022 07:39:32 -0400</pubDate>
       
       <guid>https://ilightthings.github.io/posts/pokemon-encoder/</guid>
       <description>This is just a small writeup I made for a shellcode payload encoder that I made for the the OSEP exam.

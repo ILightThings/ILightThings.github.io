@@ -6,21 +6,11 @@
     <description>Recent content in offsec on iLightThings: A site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Aug 2022 07:39:32 -0400</lastBuildDate><atom:link href="https://ilightthings.github.io/tags/offsec/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>OSEP a Victory</title>
-      <link>https://ilightthings.github.io/posts/osep-a-victory/</link>
-      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
-      
-      <guid>https://ilightthings.github.io/posts/osep-a-victory/</guid>
-      <description>So I just recently passed the PEN-300 course and got my OSEP. It was a truly fun but difficult journey. I wanted to briefly write a few things down before I forget them in hopes that they might help someone in the future.
-The Timeline So, I will admit fault here; I slacked off for a bunch of months. I bought the course back in January and had a year-long access pass.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 24 Aug 2022 07:39:32 -0400</lastBuildDate><atom:link href="https://ilightthings.github.io/tags/offsec/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pokemon: A Fun Encoder Project</title>
       <link>https://ilightthings.github.io/posts/pokemon-encoder/</link>
-      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
+      <pubDate>Wed, 24 Aug 2022 07:39:32 -0400</pubDate>
       
       <guid>https://ilightthings.github.io/posts/pokemon-encoder/</guid>
       <description>This is just a small writeup I made for a shellcode payload encoder that I made for the the OSEP exam.
@@ -29,6 +19,16 @@ Make sure the entropy is at a level similar to English
 If the same shellcode is ran through the encoder multiple times, the result will be different but the result is the same
 No key is needed to decrypt the shellcode. Just an algo
 This technique was sponsored by the Pokemon Save Game Checksum Method.</description>
+    </item>
+    
+    <item>
+      <title>OSEP a Victory</title>
+      <link>https://ilightthings.github.io/posts/osep-a-victory/</link>
+      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
+      
+      <guid>https://ilightthings.github.io/posts/osep-a-victory/</guid>
+      <description>So I just recently passed the PEN-300 course and got my OSEP. It was a truly fun but difficult journey. I wanted to briefly write a few things down before I forget them in hopes that they might help someone in the future.
+The Timeline So, I will admit fault here; I slacked off for a bunch of months. I bought the course back in January and had a year-long access pass.</description>
     </item>
     
   </channel>
