@@ -17,6 +17,24 @@
     </item>
     
     <item>
+      <title>dev</title>
+      <link>https://ilightthings.github.io/tags/dev/</link>
+      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
+      
+      <guid>https://ilightthings.github.io/tags/dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>malware</title>
+      <link>https://ilightthings.github.io/tags/malware/</link>
+      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
+      
+      <guid>https://ilightthings.github.io/tags/malware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>offsec</title>
       <link>https://ilightthings.github.io/tags/offsec/</link>
       <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
@@ -40,6 +58,15 @@
       <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
       
       <guid>https://ilightthings.github.io/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shellcode</title>
+      <link>https://ilightthings.github.io/tags/shellcode/</link>
+      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
+      
+      <guid>https://ilightthings.github.io/tags/shellcode/</guid>
       <description></description>
     </item>
     

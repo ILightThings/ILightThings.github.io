@@ -17,5 +17,19 @@
 The Timeline So, I will admit fault here; I slacked off for a bunch of months. I bought the course back in January and had a year-long access pass.</description>
     </item>
     
+    <item>
+      <title>Pokemon: A Fun Encoder Project</title>
+      <link>https://ilightthings.github.io/posts/pokemon-encoder/template/</link>
+      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
+      
+      <guid>https://ilightthings.github.io/posts/pokemon-encoder/template/</guid>
+      <description>This is just a small writeup I made for a shellcode payload encoder that I made for the the OSEP exam.
+Goals:
+Make sure the entropy is at a level similar to English
+If the same shellcode is ran through the encoder multiple times, the result will be different but the result is the same
+No key is needed to decrypt the shellcode. Just an algo
+This technique was sponsored by the Pokemon Save Game Checksum Method.</description>
+    </item>
+    
   </channel>
 </rss>
