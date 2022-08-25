@@ -9,20 +9,6 @@
     <lastBuildDate>Wed, 24 Aug 2022 07:39:32 -0400</lastBuildDate><atom:link href="https://ilightthings.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pokemon-Encoder</title>
-      <link>https://ilightthings.github.io/posts/pokemon-encoder/</link>
-      <pubDate>Wed, 24 Aug 2022 07:39:32 -0400</pubDate>
-      
-      <guid>https://ilightthings.github.io/posts/pokemon-encoder/</guid>
-      <description>This is just a small writeup I made for a shellcode payload encoder that I made for the the OSEP exam.
-Goals:
-Make sure the entropy is at a level similar to English
-If the same shellcode is ran through the encoder multiple times, the result will be different but the result is the same
-No key is needed to decrypt the shellcode. Just an algo
-This technique was sponsored by the Pokemon Save Game Checksum Method.</description>
-    </item>
-    
-    <item>
-      <title>Pokemon-Encoder</title>
       <link>https://ilightthings.github.io/posts/pokemon-shellcode-encoder/</link>
       <pubDate>Wed, 24 Aug 2022 07:39:32 -0400</pubDate>
       
