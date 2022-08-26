@@ -136,7 +136,7 @@ Delete the whitespace and the newline characters from the payload" />
 <p><code>self.comment</code> and <code>self.transform</code>. When a payload is generated within msfconsole, both of these function are called.</p>
 <p><img src="2022-08-26-11-16-06-image.png" alt=""></p>
 <p>If the format name is called, and the entry is not found in both functions, the error <code>raise BufferFormatError, &quot;Unsupported buffer format: #{fmt}&quot;, caller</code> is called.</p>
-<p>![](file://C:\Users\Gideon\OneDrive - ggray.info\site\iLightThings\content\posts\encoder-in-metasploit\2022-08-26-11-14-27-image.png?msec=1661526867597)</p>
+<p><img src="2022-08-26-14-24-18-image.png" alt=""></p>
 <p>Adding our own entry <code>poke</code> to both sections with a simple <code>hello world</code> string will allow use to call that switch statement.</p>
 <p><img src="2022-08-26-11-15-48-image.png" alt=""></p>
 <p>Relaunching and calling the format <code>poke</code> returns use the expected result.</p>
