@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Encoder in Metasploit // iLightThings: A site</title>
+    <title>Building the Poke encoder in Metasploit // iLightThings: A site</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.101.0" />
@@ -12,19 +12,17 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Encoder in Metasploit"/>
-<meta name="twitter:description" content="So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
+<meta name="twitter:title" content="Building the Poke encoder in Metasploit"/>
+<meta name="twitter:description" content="Building the Poke encoder in Metasploit So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
 Unfortunately for me, building the shell code was slightly annoying. The steps were:
 Use msfvenom with the payload of choice, use output it to -f num
-Delete the whitespace and the newline characters from the payload
-Load the payload into the encoder in what ever Lang I wrote it in (Right now, Python, Golang, CSharp and Nim)."/>
+Delete the whitespace and the newline characters from the payload"/>
 
-    <meta property="og:title" content="Encoder in Metasploit" />
-<meta property="og:description" content="So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
+    <meta property="og:title" content="Building the Poke encoder in Metasploit" />
+<meta property="og:description" content="Building the Poke encoder in Metasploit So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
 Unfortunately for me, building the shell code was slightly annoying. The steps were:
 Use msfvenom with the payload of choice, use output it to -f num
-Delete the whitespace and the newline characters from the payload
-Load the payload into the encoder in what ever Lang I wrote it in (Right now, Python, Golang, CSharp and Nim)." />
+Delete the whitespace and the newline characters from the payload" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ilightthings.github.io/posts/encoder-in-metasploit/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-25T17:15:50-04:00" />
@@ -56,7 +54,7 @@ Load the payload into the encoder in what ever Lang I wrote it in (Right now, Py
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Encoder in Metasploit</h1>
+      <h1 class ="post-title">Building the Poke encoder in Metasploit</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -85,7 +83,8 @@ Load the payload into the encoder in what ever Lang I wrote it in (Right now, Py
       </div>
     </header>
     <div class="post-content">
-      <p>So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.</p>
+      <h1 id="building-the-poke-encoder-in-metasploit">Building the Poke encoder in Metasploit</h1>
+<p>So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.</p>
 <p>Unfortunately for me, building the shell code was slightly annoying. The steps were:</p>
 <ol>
 <li>

@@ -8,16 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Aug 2022 17:15:50 -0400</lastBuildDate><atom:link href="https://ilightthings.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Encoder in Metasploit</title>
+      <title>Building the Poke encoder in Metasploit</title>
       <link>https://ilightthings.github.io/posts/encoder-in-metasploit/</link>
       <pubDate>Thu, 25 Aug 2022 17:15:50 -0400</pubDate>
       
       <guid>https://ilightthings.github.io/posts/encoder-in-metasploit/</guid>
-      <description>So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
+      <description>Building the Poke encoder in Metasploit So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
 Unfortunately for me, building the shell code was slightly annoying. The steps were:
 Use msfvenom with the payload of choice, use output it to -f num
-Delete the whitespace and the newline characters from the payload
-Load the payload into the encoder in what ever Lang I wrote it in (Right now, Python, Golang, CSharp and Nim).</description>
+Delete the whitespace and the newline characters from the payload</description>
     </item>
     
     <item>
