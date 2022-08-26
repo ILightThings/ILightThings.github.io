@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Encoder in Metasploit // iLightThings: A site</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="iLightThings" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://ilightthings.github.io/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Encoder in Metasploit"/>
+<meta name="twitter:description" content="So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
+Unfortunately for me, building the shell code was slightly annoying. The steps were:
+Use msfvenom with the payload of choice, use output it to -f num
+Delete the whitespace and the newline characters from the payload
+Load the payload into the encoder in what ever Lang I wrote it in (Right now, Python, Golang, CSharp and Nim)."/>
+
+    <meta property="og:title" content="Encoder in Metasploit" />
+<meta property="og:description" content="So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
+Unfortunately for me, building the shell code was slightly annoying. The steps were:
+Use msfvenom with the payload of choice, use output it to -f num
+Delete the whitespace and the newline characters from the payload
+Load the payload into the encoder in what ever Lang I wrote it in (Right now, Python, Golang, CSharp and Nim)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ilightthings.github.io/posts/encoder-in-metasploit/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-25T17:15:50-04:00" />
+<meta property="article:modified_time" content="2022-08-25T17:15:50-04:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://ilightthings.github.io/"><img class="app-header-avatar" src="/nice.jpg" alt="iLightThings" /></a>
+      <h1>iLightThings: A site</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>Hello, my name is iLightThings, and this is a technical blog about my experiences and adventures in the world of cyber security, with a focus on redteaming, windows exploitation, network attacks, and custom tool designed.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/ILightThings" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>My Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Encoder in Metasploit</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Aug 25, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://ilightthings.github.io/tags/metasploit/">metasploit</a>
+              <a class="tag" href="https://ilightthings.github.io/tags/dev/">dev</a>
+              <a class="tag" href="https://ilightthings.github.io/tags/malware/">malware</a>
+              <a class="tag" href="https://ilightthings.github.io/tags/opensource/">opensource</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.</p>
+<p>Unfortunately for me, building the shell code was slightly annoying. The steps were:</p>
+<ol>
+<li>
+<p>Use msfvenom with the payload of choice, use output it to <code>-f num</code></p>
+</li>
+<li>
+<p>Delete the whitespace and the newline characters from the payload</p>
+</li>
+<li>
+<p>Load the payload into the encoder in what ever Lang I wrote it in (Right now, Python, Golang, CSharp and Nim).</p>
+</li>
+<li>
+<p>Run the encoder and copy the output</p>
+</li>
+<li>
+<p>Format the output to fit the shellcode program syntax</p>
+</li>
+<li>
+<p>Compile the shellcode program.</p>
+</li>
+</ol>
+<p>This process was not very efficient and was prone to errors. Any modification in any of the steps would require me to start over. Regenerate, restrip, reencode, recompile, retest.</p>
+<p>So what if I could build my encoder into Metasploit directly? I decided today was  great way to try to learn how to.</p>
+<h2 id="investigation">Investigation</h2>
+<p>So where do we even start?</p>
+<p>Well, I choose to start by going to the <a href="https://github.com/rapid7/metasploit-framework">metasploit github page</a> and look for strings that are similar to any of the <code>-f</code> options when generating the payload. We can narrow it down by using uncommon strings.</p>
+<p>We use the command <code>msfvenom -l format</code> to list the formats. I chose to use the transform string to search for my starting point.</p>
+<p><img src="2022-08-26-10-46-50-image.png" alt=""></p>
+<p>Using this string, we search the metasploit repo for any files that mention this.</p>
+<p><img src="2022-08-26-10-48-00-image.png" alt=""></p>
+<p>The first result is pretty promising. We check out the file.</p>
+<h3 id="development-environment">Development Environment</h3>
+<p>At this point, I felt it was a good idea to setup a development environment.</p>
+<p>Metasploit has a good <a href="https://docs.metasploit.com/docs/development/get-started/setting-up-a-metasploit-development-environment.html">resource</a> page for doing this.</p>
+<p>The only real command we needed to do before git cloning it was:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install -y git autoconf build-essential libpcap-dev libpq-dev zlib1g-dev libsqlite3-dev
+</span></span></code></pre></div><p>After that, we can simply git clone the repo, and get started:</p>
+<pre tabindex="0"><code>git clone https://github.com/rapid7/metasploit-framework.git
+</code></pre><p>We cd into the new repo and run <code>./msfconsole</code> to ensure that it runs normally.</p>
+<p><img src="2022-08-26-10-54-47-image.png" alt=""></p>
+<p>Seeing this page, we can now start with our development of our encoder.</p>
+<p><em>Important to note</em></p>
+<p>It is important to note, that I use the word encoder improperly. I am actually building a transform format. An encoder actually adds additional functions to the resulting byte code to decode it from its encoded from. I am actually only using metasploit to generate the encoded form, and using the shellcode program in other languages to decode it.</p>
+<p>Also, after every change we will need to relaunch metasploit to apply the changes.</p>
+<p>After this is done, I chose to use VSCode with the SSH module to make further edits.</p>
+<h2 id="starting-point">Starting Point</h2>
+<p>So from before, we can start with the file <code>metasploit-framework/lib/msf/base/simple/buffer.rb</code>.</p>
+<p>After some testing, I found out that there is two function that we need to edit for our custom encoder/transform to be an allowable option in metasploit.</p>
+<p><code>self.comment</code> and <code>self.transform</code>. When a payload is generated within msfconsole, both of these function are called.</p>
+<p><img src="2022-08-26-11-16-06-image.png" alt=""></p>
+<p>If the format name is called, and the entry is not found in both functions, the error <code>raise BufferFormatError, &quot;Unsupported buffer format: #{fmt}&quot;, caller</code> is called.</p>
+<p>![](file://C:\Users\Gideon\OneDrive - ggray.info\site\iLightThings\content\posts\encoder-in-metasploit\2022-08-26-11-14-27-image.png?msec=1661526867597)</p>
+<p>Adding our own entry <code>poke</code> to both sections with a simple <code>hello world</code> string will allow use to call that switch statement.</p>
+<p><img src="2022-08-26-11-15-48-image.png" alt=""></p>
+<p>Relaunching and calling the format <code>poke</code> returns use the expected result.</p>
+<p><img src="2022-08-26-11-18-50-image.png" alt=""></p>
+<h2 id="rebuilding-the-encoderagain">Rebuilding the encoder&hellip;&hellip;again&hellip;&hellip;</h2>
+<p>Alright, so we have built the encoder in several languages so far&hellip;</p>
+<p>Full disclosure, I&rsquo;ve never done work in ruby before. So this was a struggle. It was likely also inefficient. But because we are not commiting this to the official repo, we are okay with the inefficiencies.</p>
+<p>I split the encoder into two functions.</p>
+<ul>
+<li>
+<p><code>self.pokeform</code> - This function will be called from <code>self.transform</code> with the string of the bytes passed to it. This function will ensure we have <code> /usr/share/dict/american-english</code> installed (our wordlist) and that each byte is split up to an array.</p>
+</li>
+<li>
+<p><code>self.WordToByte</code> - Each byte that is passed to this function is given a word representation of it using the algorithm that we built before. Return a word.</p>
+</li>
+</ul>
+<h4 id="selfwordtobytebytenumber">self.WordToByte(bytenumber)</h4>
+<p>Looking back, I know the name of the function is actually reversed. Should be byte to word&hellip;.. Nice.</p>
+<p>This function starts by opening the file <code>/usr/share/dict/american-english</code> and splitting (by newline) the file into an array of words.</p>
+<p>Then we start an infinite loop that will only die once we get a word that fits that desired parameters.</p>
+<h5 id="steps">Steps</h5>
+<ol>
+<li>
+<p>Initiate a variable <code>resultnumber</code> variable with the number 0.</p>
+</li>
+<li>
+<p>Get Random word and uppercase it.</p>
+</li>
+<li>
+<p>If word has non alphanumeric character, restart loop at step 1.</p>
+</li>
+<li>
+<p>Split the word into an array of characters.</p>
+</li>
+<li>
+<p>For each character, if ascii value of character:</p>
+<ol>
+<li>
+<p>Is less or equal to 77, add ascii value to <code>resultvalue</code> and then <code>AND 255</code> to make sure it does not exceed 255 (value of a byte.)</p>
+</li>
+<li>
+<p>Is more then 77, substract ascii value from <code>resultvalue</code> and then <code>AND 255</code> to the ensure the value does not go lower then 0.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>If <code>resultvalue</code> is equal to <code>bytenumber</code>, return the word and therefor, end the loop. Else, repeat at step 1.</p>
+</li>
+</ol>
+<h5 id="source">Source</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">WordToByte</span>(bytenumber)
+</span></span><span style="display:flex;"><span>    wordlist_data <span style="color:#f92672">=</span> <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>read(<span style="color:#e6db74">&#34;/usr/share/dict/american-english&#34;</span>)<span style="color:#f92672">.</span>split <span style="color:#75715e">#Get wordlist and put into array.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">loop</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>      resultNumber <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      testword <span style="color:#f92672">=</span> wordlist_data<span style="color:#f92672">.</span>sample(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">].</span>upcase 
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (testword<span style="color:#f92672">.</span>index( <span style="color:#e6db74">/[^[:alnum:]]/</span> ) <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span>) <span style="color:#75715e"># If the word has any nonalphanumeric chars, go to next one.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">next</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>      charsarray <span style="color:#f92672">=</span> testword<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#75715e"># Split word to array of chars</span>
+</span></span><span style="display:flex;"><span>      charsarray<span style="color:#f92672">.</span>each {<span style="color:#f92672">|</span>l<span style="color:#f92672">|</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> l<span style="color:#f92672">.</span>ord <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">77</span>
+</span></span><span style="display:flex;"><span>          resultNumber <span style="color:#f92672">+=</span> l<span style="color:#f92672">.</span>ord
+</span></span><span style="display:flex;"><span>          resultNumber <span style="color:#f92672">=</span> resultNumber <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">255</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>          resultNumber <span style="color:#f92672">-=</span> l<span style="color:#f92672">.</span>ord
+</span></span><span style="display:flex;"><span>          resultNumber <span style="color:#f92672">=</span> resultNumber <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">255</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> resultNumber <span style="color:#f92672">==</span> bytenumber<span style="color:#f92672">.</span>to_i() <span style="color:#75715e">#If word result is equal to desired byte, return the word</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> testword
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h5 id="comments">Comments</h5>
+<p>I should note that this is inefficient because we are reopening are reading the file of words for every single byte, rather then having it open once. I will fix that eventually.</p>
+<h3 id="selfpokebuf">self.poke(buf)</h3>
+<p>The main function of our project. It takes a buffer that is supplied by metasploit with our shellcode.</p>
+<h4 id="steps-1">Steps</h4>
+<ol>
+<li>
+<p>Checks to see if our dictionary file is present. If not, errors out with an message notifying.</p>
+</li>
+<li>
+<p>We use the existing <code>rex::text.to_num()</code> function to turn the buffer from its current format to a string format that I can work with using the variable <code>data</code>. We also strip the whitespace so we can just use comma separation to turn it into an array later</p>
+</li>
+<li>
+<p>We initiate a new empty buffer <code>buf</code> for a our final payload.</p>
+</li>
+<li>
+<p>We split the split the <code>data</code> string into an array using <code>.split(&quot;,&quot;)</code> and but it into the <code>bytearray</code> variable.</p>
+</li>
+<li>
+<p>For each element in the in <code>bytearray</code>, use the <code>WordToByte</code> function to turn our byte into a word, and push it to the <code>buf</code> array.</p>
+</li>
+<li>
+<p>After all the bytes have been converted to words, I return the <code>buf</code> variable as a string using the <code>.join</code> command.</p>
+</li>
+</ol>
+<h4 id="source-1">Source</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">self</span><span style="color:#f92672">.</span><span style="color:#a6e22e">pokeform</span>(buf) <span style="color:#75715e"># Transform bytecode to poke encoder</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>exists?(<span style="color:#e6db74">&#39;/usr/share/dict/american-english&#39;</span>))
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      data <span style="color:#f92672">=</span> <span style="color:#66d9ef">Rex</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Text</span><span style="color:#f92672">.</span>to_num(buf)<span style="color:#f92672">.</span>gsub(<span style="color:#e6db74">/\s+/</span>, <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#75715e"># Get the original payload, in num format, and strip whitespace chars.</span>
+</span></span><span style="display:flex;"><span>      buf <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>      bytearray <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;,&#34;</span>) <span style="color:#75715e"># Split the bytes by comma.</span>
+</span></span><span style="display:flex;"><span>      bytearray<span style="color:#f92672">.</span>each {<span style="color:#f92672">|</span>x<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>      word <span style="color:#f92672">=</span> <span style="color:#66d9ef">WordToByte</span>(x<span style="color:#f92672">.</span>hex) <span style="color:#75715e"># Find a word rep of the byte.</span>
+</span></span><span style="display:flex;"><span>      alertstring <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;%s -&gt; %d&#34;</span> <span style="color:#f92672">%</span> <span style="color:#f92672">[</span>word,x<span style="color:#f92672">.</span>hex<span style="color:#f92672">]</span> <span style="color:#75715e">#lol just a print statement</span>
+</span></span><span style="display:flex;"><span>      buf <span style="color:#f92672">&lt;&lt;</span> word
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">return</span> buf<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;,&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">raise</span> <span style="color:#66d9ef">BufferFormatError</span>, <span style="color:#e6db74">&#34;/usr/share/dict/american-english not found&#34;</span>,caller <span style="color:#75715e"># Return error if dict file not found</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h2 id="testing-our-encoder">Testing our encoder</h2>
+<p>We can save this file, run metasploit, and test our encoder.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./msfconsole
+</span></span><span style="display:flex;"><span>use windows/x64/exec
+</span></span><span style="display:flex;"><span>set cmd calc.exe
+</span></span><span style="display:flex;"><span>generate -f poke
+</span></span></code></pre></div><p><img src="2022-08-26-13-56-02-image.png" alt=""></p>
+<p>Haha! It works! It is a tad slow on generation, but that is expected due to the inefficiencies that I introduced. and as mentioned in the previous blog post, if we run it again, it creates a completely new set of words with the same result.</p>
+<p><img src="2022-08-26-14-02-31-image.png" alt=""></p>
+<h2 id="future-improvements">Future improvements</h2>
+<p>So there is a couple of ways we can make this better. We will need to change the file descriptor to be open and handled once instead of once per byte.</p>
+<p>We could also just prebuild the word per byte list&hellip;.. Lets not talk about that and just let me enjoy this.</p>
+<p>We can also XOR the byte before a matched to it word. On the OSEP, I used this as a final technique to hide from AV/EDR.</p>
+<p>Finally, we could also dynamically assign the number which the program decides if the ascii value is added or subtracted from the result value.</p>
+<h2 id="final-notes">Final Notes</h2>
+<p>This was  great exercise to learn how ruby runs and how to add functionally to metasploit. I don&rsquo;t plan on adding a pull request metasploit because its rather a silly project but it will say alive in my github somewhere.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

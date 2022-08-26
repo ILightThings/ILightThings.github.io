@@ -172,7 +172,8 @@ E -&gt; 69 (+) finalbyte: 50
 
 
 0x32
-</code></pre><p>We see that since 80 is a greater value then 65, the final byte loops back to decimal value of 241.</p>
+</code></pre><p><a href="https://www.online-python.com/FV9c6NpmGn">Playground of code</a></p>
+<p>We see that since 80 is a greater value then 65, the final byte loops back to decimal value of 241.</p>
 <p>We see that the final value of the word <code>APPLE</code> is the byte value of <code>0x32</code>.</p>
 <p>For the encoder, I used a bruteforce method of building these words substitutions. It would pick words at random from a wordlist, do the calculation until it found the word with the byte value it needed. Although it could be said that I could have just predetermined the words needed for each byte, I felt a little more giddy knowing it was truly random. The result of this was a payload where no bytes of the same value having the same word represent it. The chance of this happening, although low, is not zero.</p>
 <p>For the final result, the payload <code>windows/x64/exec cmd=calc.exe -f num</code> as seen below. <em>Note: I had to delete the all the whitespace chars when encoding it&hellip;.</em></p>
