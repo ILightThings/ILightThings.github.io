@@ -1,68 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>iLightThings: A site</title>
-    <link>https://ilightthings.github.io/</link>
-    <description>Recent content on iLightThings: A site</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 25 Aug 2022 17:15:50 -0400</lastBuildDate><atom:link href="https://ilightthings.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Building the Poke encoder in Metasploit</title>
-      <link>https://ilightthings.github.io/posts/encoder-in-metasploit/</link>
-      <pubDate>Thu, 25 Aug 2022 17:15:50 -0400</pubDate>
-      
-      <guid>https://ilightthings.github.io/posts/encoder-in-metasploit/</guid>
-      <description>Building the Poke encoder in Metasploit So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>iLightThings: A site</title><link>ILightThings.github.io/</link><description>Recent content on iLightThings: A site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 25 Aug 2022 17:15:50 -0400</lastBuildDate><atom:link href="ILightThings.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Building the Poke encoder in Metasploit</title><link>ILightThings.github.io/posts/encoder-in-metasploit/</link><pubDate>Thu, 25 Aug 2022 17:15:50 -0400</pubDate><guid>ILightThings.github.io/posts/encoder-in-metasploit/</guid><description>Building the Poke encoder in Metasploit So as mentioned in a previous post, I built a custom encoder that would hide my payload as a string of words could not be understood by a static analysis from Antivirus solutions.
 Unfortunately for me, building the shell code was slightly annoying. The steps were:
 Use msfvenom with the payload of choice, use output it to -f num
-Delete the whitespace and the newline characters from the payload</description>
-    </item>
-    
-    <item>
-      <title>Pokemon-Encoder</title>
-      <link>https://ilightthings.github.io/posts/pokemon-shellcode-encoder/</link>
-      <pubDate>Wed, 24 Aug 2022 07:39:32 -0400</pubDate>
-      
-      <guid>https://ilightthings.github.io/posts/pokemon-shellcode-encoder/</guid>
-      <description>This is just a small writeup I made for a shellcode payload encoder that I made for the the OSEP exam.
+Delete the whitespace and the newline characters from the payload</description></item><item><title>Pokemon-Encoder</title><link>ILightThings.github.io/posts/pokemon-shellcode-encoder/</link><pubDate>Wed, 24 Aug 2022 07:39:32 -0400</pubDate><guid>ILightThings.github.io/posts/pokemon-shellcode-encoder/</guid><description>This is just a small writeup I made for a shellcode payload encoder that I made for the the OSEP exam.
 Goals:
 Make sure the entropy is at a level similar to English
 If the same shellcode is ran through the encoder multiple times, the result will be different but the result is the same
 No key is needed to decrypt the shellcode. Just an algo
-This technique was sponsored by the Pokemon Save Game Checksum Method.</description>
-    </item>
-    
-    <item>
-      <title>OSEP a Victory</title>
-      <link>https://ilightthings.github.io/posts/osep-a-victory/</link>
-      <pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate>
-      
-      <guid>https://ilightthings.github.io/posts/osep-a-victory/</guid>
-      <description>So I just recently passed the PEN-300 course and got my OSEP. It was a truly fun but difficult journey. I wanted to briefly write a few things down before I forget them in hopes that they might help someone in the future.
-The Timeline So, I will admit fault here; I slacked off for a bunch of months. I bought the course back in January and had a year-long access pass.</description>
-    </item>
-    
-    <item>
-      <title>APT and Me</title>
-      <link>https://ilightthings.github.io/posts/apt-and-me/</link>
-      <pubDate>Thu, 04 Aug 2022 09:00:00 -0400</pubDate>
-      
-      <guid>https://ilightthings.github.io/posts/apt-and-me/</guid>
-      <description>APT and me So I have been starting to break into APT research and learning how various state sponsored groups conduct there attacks. The easiest way I have found is reading papers on https://samples.vx-underground.org/APTs where a number of articles are consolidated and collected in PDF format.
-A group I see time and time again is APT41 which is speculated to be a CN hacker group. They go by a number of aliases, which I won&amp;rsquo;t go into but I watch there attack patterns that are very similar to those taught in the OSEP.</description>
-    </item>
-    
-    <item>
-      <title>First Post</title>
-      <link>https://ilightthings.github.io/posts/about-me/</link>
-      <pubDate>Wed, 03 Aug 2022 14:04:48 -0400</pubDate>
-      
-      <guid>https://ilightthings.github.io/posts/about-me/</guid>
-      <description>Hello Hello there. If you are reading this, then hopefully this is the start of something new and long term.
+This technique was sponsored by the Pokemon Save Game Checksum Method.</description></item><item><title>OSEP a Victory</title><link>ILightThings.github.io/posts/osep-a-victory/</link><pubDate>Tue, 23 Aug 2022 07:39:32 -0400</pubDate><guid>ILightThings.github.io/posts/osep-a-victory/</guid><description>So I just recently passed the PEN-300 course and got my OSEP. It was a truly fun but difficult journey. I wanted to briefly write a few things down before I forget them in hopes that they might help someone in the future.
+The Timeline So, I will admit fault here; I slacked off for a bunch of months. I bought the course back in January and had a year-long access pass.</description></item><item><title>APT and Me</title><link>ILightThings.github.io/posts/apt-and-me/</link><pubDate>Thu, 04 Aug 2022 09:00:00 -0400</pubDate><guid>ILightThings.github.io/posts/apt-and-me/</guid><description>APT and me So I have been starting to break into APT research and learning how various state sponsored groups conduct there attacks. The easiest way I have found is reading papers on https://samples.vx-underground.org/APTs where a number of articles are consolidated and collected in PDF format.
+A group I see time and time again is APT41 which is speculated to be a CN hacker group. They go by a number of aliases, which I won&amp;rsquo;t go into but I watch there attack patterns that are very similar to those taught in the OSEP.</description></item><item><title>First Post</title><link>ILightThings.github.io/posts/about-me/</link><pubDate>Wed, 03 Aug 2022 14:04:48 -0400</pubDate><guid>ILightThings.github.io/posts/about-me/</guid><description>Hello Hello there. If you are reading this, then hopefully this is the start of something new and long term.
 Niche Topics that I love These are topic that I would love to talk to people about, if they were not so boring to talk about. Really vibe killer. But regardless, It is a lot of fun to talk about.
-impacket toolkit I have really started to get into what makes impacket tick.</description>
-    </item>
-    
-  </channel>
-</rss>
+impacket toolkit I have really started to get into what makes impacket tick.</description></item></channel></rss>

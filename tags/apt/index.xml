@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>APT on iLightThings: A site</title>
-    <link>https://ilightthings.github.io/tags/apt/</link>
-    <description>Recent content in APT on iLightThings: A site</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 04 Aug 2022 09:00:00 -0400</lastBuildDate><atom:link href="https://ilightthings.github.io/tags/apt/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>APT and Me</title>
-      <link>https://ilightthings.github.io/posts/apt-and-me/</link>
-      <pubDate>Thu, 04 Aug 2022 09:00:00 -0400</pubDate>
-      
-      <guid>https://ilightthings.github.io/posts/apt-and-me/</guid>
-      <description>APT and me So I have been starting to break into APT research and learning how various state sponsored groups conduct there attacks. The easiest way I have found is reading papers on https://samples.vx-underground.org/APTs where a number of articles are consolidated and collected in PDF format.
-A group I see time and time again is APT41 which is speculated to be a CN hacker group. They go by a number of aliases, which I won&amp;rsquo;t go into but I watch there attack patterns that are very similar to those taught in the OSEP.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>APT on iLightThings: A site</title><link>ILightThings.github.io/tags/apt/</link><description>Recent content in APT on iLightThings: A site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 04 Aug 2022 09:00:00 -0400</lastBuildDate><atom:link href="ILightThings.github.io/tags/apt/index.xml" rel="self" type="application/rss+xml"/><item><title>APT and Me</title><link>ILightThings.github.io/posts/apt-and-me/</link><pubDate>Thu, 04 Aug 2022 09:00:00 -0400</pubDate><guid>ILightThings.github.io/posts/apt-and-me/</guid><description>APT and me So I have been starting to break into APT research and learning how various state sponsored groups conduct there attacks. The easiest way I have found is reading papers on https://samples.vx-underground.org/APTs where a number of articles are consolidated and collected in PDF format.
+A group I see time and time again is APT41 which is speculated to be a CN hacker group. They go by a number of aliases, which I won&amp;rsquo;t go into but I watch there attack patterns that are very similar to those taught in the OSEP.</description></item></channel></rss>
